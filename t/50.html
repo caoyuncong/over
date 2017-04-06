@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html {
+            width: 1000px;
+        }
+
+        body {
+            width: 900px;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        html,
+        body,
+        #container,
+        #header,
+        h1,
+        h2,
+        #nav,
+        ul,
+        li,
+        .figure,
+        .figcaption,
+        #footer,
+        .a,
+        .a1,
+        .img {
+            border: 2px solid #000;
+            margin: auto;
+        }
+
+
+        #container,
+        html,
+        body,
+        #header {
+            padding: 20px;
+            margin: 10px;
+        }
+
+        ul {
+            width: 750px;
+            height: 80px;
+            margin: 10px;
+            padding: 10px 20px;
+        }
+
+        li {
+            width: 150px;
+            float: left;
+            list-style: none;
+            height: 50px;
+            padding: 10px;
+            margin: 5px;
+        }
+
+
+        .a1 {
+            width: 150px;
+            height: 30px;
+            top: 10px;
+            margin: 10px;
+
+        }
+
+
+        h1, h2 {
+            width: 750px;
+            height: 30px;
+            padding: 5px;
+            margin: 5px;
+        }
+
+        #header,
+        #nav {
+            width: 800px;
+            height: 100px;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        #nav {
+            height: 140px;
+        }
+
+        #content {
+            height: 100px;
+            width: 800px;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .figure {
+            float: left;
+            width: 200px;
+            height: 70px;
+            margin: auto;
+        }
+
+        .a {
+            width: 100px;
+            height: 30px;
+            /*padding: 10px;*/
+            /*margin: 10px;*/
+        }
+
+
+        .figcaption {
+            float: left;
+            width: 100px;
+            height: 10px;
+
+        }
+
+        #footer {
+            width: 800px;
+            height: 100px;
+            margin: 10px;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+        <h1>h1</h1>
+        <h2>h2</h2>
+    </div>
+    <div id="nav">
+        <ul>
+            <li><a href="" class="a"></a></li>
+            <li><a href="" class="a"></a></li>
+            <li><a href="" class="a"></a></li>
+            <li><a href="" class="a"></a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <div class="figure">
+            <a href="#" class="a1"><img src="" class="img"></a>
+            <div class="figcaption">figcaption</div>
+            <div class="clear"></div>
+        </div>
+        <div class="figure">
+            <a href="#" class="a1"><img src="" class="img"></a>
+            <div class="figcaption">figcaption</div>
+            <div class="clear"></div>
+        </div>
+        <div class="figure">
+            <a href="#" class="a1"><img src="" class="img"></a>
+            <div class="figcaption">figcaption</div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div id="footer"></div>
+</div>
+</body>
+</html>

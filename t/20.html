@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #wrapper {
+            width: 300px;
+            height: 300px;
+            padding: 10px;
+            border: 1px solid #0ff;
+        }
+
+        #tl,
+        #tr,
+        #center,
+        #bl,
+        #br {
+            background: pink;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        #center {
+            background: #00f;
+        }
+
+        #tl,
+        #bl {
+            float: left;
+        }
+
+        #tr,
+        #br {
+            float: right;
+        }
+
+        #center {
+            position: relative;
+            top: 100px;
+            left: 100px;
+        }
+
+        #center a {
+            position: relative;
+            top: -100px;
+        }
+
+        #bl,
+        #br {
+            position: relative;
+            top: 100px;
+        }
+
+        a:link {
+            color: #ff0;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="tl"><a href="#">链接</a></div>
+        <div id="tr"><a href="#">链接</a></div>
+        <div id="center"><a href="#">链接</a></div>
+        <div id="bl"><a href="#">链接</a></div>
+        <div id="br"><a href="#">链接</a></div>
+    </div>
+</body>
+</html>
