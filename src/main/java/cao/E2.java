@@ -15,20 +15,27 @@ public class E2 {
         System.out.println("input String:");
         String s = scanner.nextLine();
         char[] chars = s.toCharArray();
-        for (char aChar : chars) {
-            if (aChar >= 'A' && aChar <= 'Z') {
-                System.out.println(s.toLowerCase());
-                return;
-            } else if (aChar >= 'a' && aChar <= 'z') {
-                System.out.println(s.toUpperCase());
-                return;
-            } else {
-                System.out.println(aChar);
+
+        for (int i = 0; i < chars.length; i++) {
+            char aChar = chars[i];
+
+//            String s1 = aChar + "";
+            String s1 = Character.toString(aChar);
+            if (s1.toLowerCase().equals(s1)) {
+                s1 = s1.toUpperCase();
+                chars[i] = s1.toCharArray()[0];
+            } else if (s1.toUpperCase().equals(s1)) {
+                s1 = s1.toLowerCase();
+                chars[i] = s1.toCharArray()[0];
             }
+
         }
-        chars[0] = chars[chars.length - 1];
-        chars[chars.length - 1] = chars[0];
-        System.out.println(s);
+            char temp = chars[0];
+            chars[0] = chars[chars.length - 1];
+            chars[chars.length - 1] = temp;
+
+            System.out.println(String.valueOf(chars));
+            System.out.println(new String(chars));
     }
 
 }
