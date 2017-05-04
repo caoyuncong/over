@@ -1,7 +1,7 @@
 package exception;
 
 import java.io.*;
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * Created by caoyuncong on
@@ -13,45 +13,41 @@ import java.util.ArrayList;
 //        (2)从文件中读取这5000个整数,并计算其最大值、最小值和平均值并输出结果。
 //        （25 分）
 public class FileTest2 {
+    private static final int N = 5000;
+
     public static void main(String[] args) {
-        int max = 0;
-        int min = 0;
         int sum = 0;
-        int avg = 0;
-        int[] ints = new int[5000];
-        ArrayList<Integer> integers = new ArrayList<>();
+        int min = 9998;
+        int max = 2;
+        List<Integer> list = new ArrayList<>();
+        Set<Integer> set = new TreeSet<>();
         try (
-                BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/java/exception/a.txt"));
-                BufferedReader reader = new BufferedReader(new FileReader("src/main/java/exception/a.txt"))
+                RandomAccessFile raf = new RandomAccessFile("a.txt", "rw")
         ) {
-            for (int i = 0; i < 5000; i++) {
-                int rnum = (int) Math.random() * 99990;
-                System.out.println(rnum);
-                writer.write(rnum);
-                int num=reader.read();
-                integers.add(num);
+            for (int i = 0; i < N; i++) {
+                int r = (int) (Math.random() * 9997) + 2;
+                raf.writeInt(r);
             }
-
-            for (int i = 0; i < integers.size(); i++) {
-                for (int j = i+1; j < ints.length; j++) {
-                    if (ints[i] > ints[j]) {
-                        max = ints[i];
-                        min = ints[j];
-                    } else {
-                        max = ints[j];
-                        min = ints[i];
-                    }
-                    sum += ints[i];
-
+            raf.seek(0);
+            for (int i = 0; i < N; i++) {
+                int r = raf.readInt();
+                list.add(r);
+                set.add(r);
+                if (r < min) {
+                    min = r;
                 }
-
-
+                if (r > max) {
+                    max = r;
+                }
             }
-            System.out.println(max);
-            System.out.println(min);
-            System.out.println(avg/5000);
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println(min + ":" + max);
+
+        System.out.println(Collections.min(list) + ":" + Collections.max(list));
+        System.out.println(sum / N);
+        List<Integer> integers = new ArrayList<>(set);
+        System.out.println(integers.get(0) + ":" + integers.add(integers.size() - 1));
     }
 }

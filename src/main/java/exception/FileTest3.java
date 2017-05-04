@@ -23,20 +23,22 @@ public class FileTest3 {
     public static void main(String[] args) throws IOException {
 
         try (
-                BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/java/exception/raf.txt"));
-                BufferedReader reader=new BufferedReader(new FileReader("src/main/java/exception/raf.txt"));
-                BufferedWriter writer1 = new BufferedWriter(new FileWriter("src/main/java/exception/output.txt"));
-
+                RandomAccessFile randomAccessFile = new RandomAccessFile("raf.txt", "rw")
         ) {
-            for (int i = 1; i < 21; i++) {
-                writer.write(get(i));
+            for (int i = 1; i < 20; i++) {
+                randomAccessFile.writeInt(get(i + 1));
             }
-
-            for (int i = 2; i < 21; i+=2) {
-                writer1.write(reader.read());
+            randomAccessFile.seek(0);
+            for (int i = 0; i < 10; i++) {
+                randomAccessFile.readInt();
+                try (
+                        RandomAccessFile file = new RandomAccessFile("output.txt", "rw")
+                ) {
+                    int r = randomAccessFile.readInt();
+                    System.out.println(r);
+                    file.writeInt(r);
+                }
             }
-
-
         } catch (IOException e) {
             e.printStackTrace();
         }

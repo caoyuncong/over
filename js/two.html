@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #box {
+            width: 820px;
+            height: 461px;
+            overflow: hidden;
+            border: 5px solid yellow;
+            border-radius: 20px;
+            position: relative;
+            margin: 20px auto;
+            box-shadow: 10px 10px 5px #888888;;
+        }
+
+        #box ul li{
+            float: left;
+        }
+
+        #box ol {
+            position: absolute;
+            width: 120px;
+            height: 10px;
+            bottom: 10px;
+            left: 350px;
+        }
+
+        #box ol li {
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+            margin-left: 10px;
+            background: purple;
+            float: left;
+
+        }
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul id="imgs">
+        <li><img src="img2/1.jpg" alt=""></li>
+        <li><img src="img2/2.jpg" alt=""></li>
+        <li><img src="img2/3.jpg" alt=""></li>
+        <li><img src="img2/4.jpg" alt=""></li>
+        <li><img src="img2/5.jpg" alt=""></li>
+        <li><img src="img2/6.jpg" alt=""></li>
+    </ul>
+    <ol id="circle">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ol>
+</div>
+<script>
+    var imgs = document.getElementById("imgs").getElementsByTagName('li'),
+        lis = document.getElementById("circle").getElementsByTagName('li');
+    var k = 0;
+    function auto() {
+        for (var i = 0; i < lis.length; i++) {
+            imgs[i].style.display = 'none';
+            lis[i].style.background = 'purple';
+        }
+        imgs[k].style.display = 'block';
+        lis[k].style.background = 'red';
+        k++;
+        if (k > lis.length - 1) {
+            k = 0;
+        }
+    }
+    s1 = setInterval(auto, 3000);
+    for (var i = 0; i < lis.length; i++) {
+        lis[i].index = i;
+        lis[i].onmouseover = function () {
+            for (var j = 0; j < imgs.length; j++) {
+                imgs[j].style.display = 'none';
+                lis[j].style.background = 'purple';
+            }
+            lis[this.index].style.background = 'red';
+            imgs[this.index].style.display = 'block';
+        }
+        lis[i].onmouseout = function () {
+            k = this.index;
+            s1 = setInterval(auto, 3000);
+        }
+    }
+
+</script>
+</body>
+</html>

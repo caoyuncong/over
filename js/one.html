@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #box {
+            width: 4100px;
+            height: 461px;
+            margin: 0 auto;
+            overflow: hidden;
+            -webkit-animation: flower 5s linear 300ms infinite alternate;
+        }
+
+        #box img {
+            float: left;
+        }
+        @-webkit-keyframes flower {
+            0%{
+                -webkit-transform: translate(0px);
+            }
+            25%{
+                -webkit-transform: translate(-820px);
+            }
+            50%{
+                -webkit-transform: translate(-1640px);
+            }
+            75%{
+                -webkit-transform: translate(-2460px);
+            }
+            100%{
+                -webkit-transform: translate(-3280px);
+            }
+
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <img src="img/1.jpg" alt="">
+    <img src="img/2.jpg" alt="">
+    <img src="img/3.jpg" alt="">
+    <img src="img/4.jpg" alt="">
+    <img src="img/5.jpg" alt="">
+</div>
+</body>
+</html>

@@ -23,5 +23,6 @@ public class StringTest3 {
 
         Arrays.sort(num);
         System.out.println(Arrays.toString(num));
+
     }
 }
