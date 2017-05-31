@@ -21,26 +21,19 @@ public class FileTest3 {
     }
 
     public static void main(String[] args) throws IOException {
-
-        try (
-                RandomAccessFile randomAccessFile = new RandomAccessFile("raf.txt", "rw")
-        ) {
-            for (int i = 1; i < 20; i++) {
-                randomAccessFile.writeInt(get(i + 1));
+        try (RandomAccessFile raf = new RandomAccessFile("raf.txt", "rw")) {
+            for (int i = 0; i < 20; i++) {
+                raf.writeInt(get(i+1));
             }
-            randomAccessFile.seek(0);
+            raf.seek(0);
             for (int i = 0; i < 10; i++) {
-                randomAccessFile.readInt();
-                try (
-                        RandomAccessFile file = new RandomAccessFile("output.txt", "rw")
-                ) {
-                    int r = randomAccessFile.readInt();
+                raf.readInt();
+                try (RandomAccessFile file = new RandomAccessFile("output.txt", "rw")) {
+                    int r = raf.readInt();
                     System.out.println(r);
                     file.writeInt(r);
                 }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }
