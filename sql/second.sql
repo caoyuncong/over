@@ -36,8 +36,7 @@ REFERENCES db_1702.login (id);
 # 实现以下功能对应的 SQL 语句：（50分）
 # 用户注册
 INSERT INTO db_1702.login (email, username, password) VALUE ('2780837020@qq.com', 'Jerry', '123');
-SELECT *
-FROM db_1702.login;
+
 # 用户登录判断
 SELECT *
 FROM db_1702.login

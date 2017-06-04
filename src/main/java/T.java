@@ -15,6 +15,4 @@ public class T {
 //        System.out.println(document);
 //        Elements elements=document.select("div[id=lg]").first().select()
     }
-
-
 }
