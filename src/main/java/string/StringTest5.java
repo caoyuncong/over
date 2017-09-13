@@ -16,6 +16,12 @@ public class StringTest5 {
     public static void main(String[] args) {
         double d = -23.234;
         System.out.println(getValue(d));
+        double c = -Math.floor(-2.1);
+        double e = Math.ceil(2.1);
+//        double f=Math.
+
+        System.out.println(c);
+        System.out.println(e);
     }
 
     public static int getValue(double d) {

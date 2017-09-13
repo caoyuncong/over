@@ -84,10 +84,11 @@ SELECT
   count(*)
 FROM db_third.Student
 GROUP BY department;
-# 从score表中查询每个科目的最高分
+# 从score表中查询每个科目的最高分 --
 SELECT *
 FROM db_third.Score
-GROUP BY grade DESC;
+GROUP BY course
+ORDER BY grade DESC;
 # 查询李四的考试科目（c_name）和考试成绩（grade）
 SELECT
   sd.name,
@@ -132,7 +133,7 @@ SELECT
   sc.course
 FROM db_third.Score sc INNER JOIN db_third.Student sd
     ON sd.id = sc.studentId
-WHERE sc.course IN ('计算机','English');
+WHERE sc.course IN ('计算机', 'English');
 
 # 将计算机考试成绩按从高到低进行排序
 SELECT
